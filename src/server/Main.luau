@@ -3,6 +3,7 @@ local main = {}
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
+local ball = require(script.Parent.Ball)
 local stateMachine = require(ReplicatedStorage.Shared.Util.StateMachine)
 
 local remotes = ReplicatedStorage.Remotes
@@ -10,7 +11,7 @@ local countdown = remotes.Countdown
 
 local gamePlane = workspace.GameArea
 
-local INTERMISSION_TIME = 10
+local INTERMISSION_TIME = 3
 local SPAWN_RADIUS = 40
 
 local timeLeft = INTERMISSION_TIME
@@ -58,6 +59,8 @@ local function startGame()
 
         humanoidRootPart.CFrame = CFrame.new(pos, center)
     end
+
+    ball.new()
 end
 
 function main.Init()
