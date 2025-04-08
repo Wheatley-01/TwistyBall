@@ -14,3 +14,9 @@ event UpdateBall {
     call: SingleSync,
     data: vector
 }
+
+event DeflectBall {
+    from: Client,
+    type: Reliable,
+    call: SingleSync,
+}

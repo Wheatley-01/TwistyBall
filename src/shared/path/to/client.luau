@@ -172,6 +172,12 @@ local function ReadEVENT_UpdateBall(): (Vector3)
 	return Value
 end
 
+local function WriteEVENT_DeflectBall(Value: nil): ()
+	-- Allocate BLOCK: 1 bytes
+	local BLOCK_START = Allocate(1)
+	buffer.writeu8(SendBuffer, BLOCK_START + 0, 2)
+end
+
 if not RunService:IsRunning() then
 	local NOOP = function() end
 	local Returns = table.freeze({
@@ -180,6 +186,9 @@ if not RunService:IsRunning() then
 	},
 	UpdateBall = {
 		On = NOOP
+	},
+	DeflectBall = {
+		Fire = NOOP
 	},
 	})
 	return Returns :: BLINK_EVENTS_SYMBOL
@@ -287,6 +296,11 @@ local Returns = table.freeze({
 			return function (): ()
 				Events.Reliable[1] = nil
 			end
+		end
+	},
+	DeflectBall = {
+		Fire = function(Value: nil): ()
+			WriteEVENT_DeflectBall(Value)
 		end
 	},
 })

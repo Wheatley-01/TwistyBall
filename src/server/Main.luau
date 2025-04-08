@@ -11,7 +11,7 @@ local countdown = remotes.Countdown
 
 local gamePlane = workspace.GameArea
 
-local INTERMISSION_TIME = 3
+local INTERMISSION_TIME = 10
 local SPAWN_RADIUS = 40
 
 local timeLeft = INTERMISSION_TIME
@@ -92,7 +92,7 @@ function main.Init()
         gameStateMachine:Transition("Intermission")
         task.wait(INTERMISSION_TIME)
         gameStateMachine:Transition("Game")
-        task.wait(10)
+        task.wait(100)
     end
 end
 

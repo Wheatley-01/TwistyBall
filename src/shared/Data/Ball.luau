@@ -7,7 +7,12 @@ export type ball = {
 local ballData = {
     HeightOffset = 6,
     InitialVelocity = 7,
-    Acceleration = 15
+    Acceleration = 15,
+    DeflectVelocity = 20,
+
+    DeflectTime = 1,
+    DeflectToNormalTime = 0.2,
+    CooldownTime = 3,
 }
 
 return ballData
